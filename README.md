@@ -75,14 +75,15 @@ APIs to syn data from,
 
 ### Template Mappings
 
-| Name                                                                                                      | Type            | 4T        | rancher Api                                                                          | Description |
-|-----------------------------------------------------------------------------------------------------------|-----------------|-----------|--------------------------------------------------------------------------------------|-------------|
-| [rancher_host_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)              | rancher-host    | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)       |             |
-| [rancher_host_status_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)       | rancher-host    | Health    | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)       |             |
-| [rancher_service_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml)        | rancher-service | Component | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json) |             |
-| [rancher_service_status_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml) | rancher-service | Health    | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json) |             |
-| [rancher_stack_template](./src/sts_rancher/sts_rancher_impl/templates/040_rancher_stacks.yaml)            | rancher-stack   | Component | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)     |             |
-| [rancher_stack_status_template](./src/sts_rancher/sts_rancher_impl/templates/040_rancher_stacks.yaml)     | rancher-stack   | Health    | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)     |             |
+| Name                                                                                                        | Type             | 4T        | rancher Api                                                                          | Description |
+|-------------------------------------------------------------------------------------------------------------|------------------|-----------|--------------------------------------------------------------------------------------|-------------|
+| [rancher_host_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)                | rancher-host     | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)       |             |
+| [rancher_public_endpoint_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)     | rancher-endpoint | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)       |             |
+| [rancher_host_status_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)         | rancher-host     | Health    | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)       |             |
+| [rancher_service_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml)          | rancher-service  | Component | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json) |             |
+| [rancher_service_status_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml)   | rancher-service  | Health    | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json) |             |
+| [rancher_stack_template](./src/sts_rancher/sts_rancher_impl/templates/040_rancher_stacks.yaml)              | rancher-stack    | Component | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)     |             |
+| [rancher_stack_status_template](./src/sts_rancher/sts_rancher_impl/templates/040_rancher_stacks.yaml)       | rancher-stack    | Health    | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)     |             |
 
 
 ## Development

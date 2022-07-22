@@ -2,9 +2,18 @@ etl:
   queries:
     - name: rancher_hosts
       query: "rancher.get_resource_from_all_projects('hosts')"
+      processor: |
+        public_endpoints = session.setdefault("public_endpoints", [])
+        for pe in item["publicEndpoints"]:
+          pe["project_name"] = item["project_name"]
+          public_endpoints.append(pe)
       template_refs:
         - rancher_host_template
         - rancher_host_status_template
+    - name: rancher_public_endpoints
+      query: "session['public_endpoints']"
+      template_refs:
+        - rancher_public_endpoint_template
   template:
     components:
       - name: rancher_host_template
@@ -19,6 +28,18 @@ etl:
             memory_gb: "|global_session['bytes_to'](item['memory'], 'g')"
             info: "$.info.labels"
             agentIpAddress: "$.agentIpAddress"
+      - name: rancher_public_endpoint_template
+        spec:
+          name: "|'%s:%s' % (item['ipAddress'], item['port'])"
+          type: "rancher-endpoint"
+          uid: "|uid('rancher', 'endpoint', '%s:%s' % (item['instanceId'], item['port'] ))"
+          layer: "Rancher Endpoints"
+          domain: "$.project_name"
+          relations: |
+            relations = [uid('rancher', 'host', item['hostId'])]
+            if item['serviceId']:
+              relations.append(uid('rancher', 'service', item['serviceId']))
+            relations
     health:
       - name: rancher_host_status_template
         spec:

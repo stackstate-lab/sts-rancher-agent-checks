@@ -27,7 +27,7 @@ etl:
         spec:
           check_id: "|'rancher_stack_%s_status' % item['id']"
           check_name: "RancherStack State"
-          topo_identifier: "|uid('rancher', 'service', item['id'])"
+          topo_identifier: "|uid('rancher', 'stack', item['id'])"
           health: |
             if item["state"] == "active":
               if item["healthState"] == "healthy":
