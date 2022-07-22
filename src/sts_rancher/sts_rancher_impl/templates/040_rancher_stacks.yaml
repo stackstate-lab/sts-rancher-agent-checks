@@ -1,0 +1,42 @@
+etl:
+  queries:
+    - name: rancher_stacks
+      query: "rancher.get_resource_from_all_projects('stacks')"
+      template_refs:
+        - rancher_stack_template
+        - rancher_stack_status_template
+  template:
+    components:
+      - name: rancher_stack_template
+        spec:
+          name: "$.name"
+          type: "rancher-stack"
+          uid: "|uid('rancher', 'stack', item['id'])"
+          layer: "Rancher Stacks"
+          domain: "$.project_name"
+          relations: |
+            relations = []
+            for service in item["serviceIds"]:
+              target_uid = uid('rancher', 'service', service)
+              relations.append(target_uid)
+            relations
+          custom_properties:
+            dockerCompose: "$.dockerCompose"
+    health:
+      - name: rancher_stack_status_template
+        spec:
+          check_id: "|'rancher_stack_%s_status' % item['id']"
+          check_name: "RancherStack State"
+          topo_identifier: "|uid('rancher', 'service', item['id'])"
+          health: |
+            if item["state"] == "active":
+              if item["healthState"] == "healthy":
+                state = "CLEAR"
+              else:
+                state = "DEVIATING"
+                health.message = item["healthState"]
+            else:
+              state = "CRITICAL"
+              health.message = item['state']
+            state
+
