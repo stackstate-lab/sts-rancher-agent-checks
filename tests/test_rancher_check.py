@@ -36,9 +36,9 @@ def test_check(m: requests_mock.Mocker = None):
     snapshot = topology.get_snapshot("")
     components = snapshot["components"]
     relations = snapshot["relations"]
-    assert len(components) == 2, "Number of Components does not match"
+    assert len(components) == 22, "Number of Components does not match"
     assert len(relations) == 0, "Number of Relations does not match"
-    assert len(health_check_states) == 2, "Number of Health does not match"
+    assert len(health_check_states) == 22, "Number of Health does not match"
     assert len(metric_names) == 0, "Number of Metrics does not match"
 
     # host_uid = "urn:host:/karbon-stackstate-c9a026-k8s-master-0"

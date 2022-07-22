@@ -193,7 +193,7 @@
       "uuid": "7ba10bb3-b98f-454c-968e-ed75b115e1bb",
       "documentation": "",
       "method": "get",
-      "endpoint": "v2-beta/projects/1a17/service",
+      "endpoint": "v2-beta/projects/1a17/services",
       "responses": [
         {
           "uuid": "41288a65-afe8-4a65-8a7b-84de56ac0908",
@@ -219,7 +219,7 @@
       "uuid": "59fc2f6b-fb5a-42f7-9054-4b7db4584090",
       "documentation": "",
       "method": "get",
-      "endpoint": "v2-beta/projects/1a5/service",
+      "endpoint": "v2-beta/projects/1a5/services",
       "responses": [
         {
           "uuid": "4ea80fd3-660b-433e-bc95-eeabae39fbd9",

@@ -1,0 +1,36 @@
+etl:
+  queries:
+    - name: rancher_services
+      query: "rancher.get_resource_from_all_projects('services')"
+      template_refs:
+        - rancher_service_template
+        - rancher_service_status_template
+  template:
+    components:
+      - name: rancher_service_template
+        spec:
+          name: "$.name"
+          type: "rancher-service"
+          uid: "|uid('rancher', 'service', item['id'])"
+          layer: "Rancher Services"
+          domain: "$.project_name"
+          custom_properties:
+            currentScale: "$.currentScale"
+    health:
+      - name: rancher_service_status_template
+        spec:
+          check_id: "|'rancher_service_%s_status' % item['id']"
+          check_name: "ServiceState"
+          topo_identifier: "|uid('rancher', 'service', item['id'])"
+          health: |
+            if item["state"] == "active":
+              if item["healthState"] == "healthy":
+                state = "CLEAR"
+              else:
+                state = "DEVIATING"
+                health.message = item["healthState"]
+            else:
+              state = "CRITICAL"
+              health.message = item['state']
+            state
+
