@@ -1,0 +1,38 @@
+etl:
+  queries:
+    - name: rancher_hosts
+      query: "rancher.get_resource_from_all_projects('hosts')"
+      template_refs:
+        - rancher_host_template
+        - rancher_host_status_template
+  template:
+    components:
+      - name: rancher_host_template
+        spec:
+          name: "$.hostname"
+          type: "rancher-host"
+          uid: "|uid('rancher', 'host', item['id'])"
+          layer: "Rancher Hosts"
+          domain: "$.project_name"
+          custom_properties:
+            milliCpu: "$.milliCpu"
+            memory_gb: "|global_session['bytes_to'](item['memory'], 'g')"
+            info: "$.info.labels"
+            agentIpAddress: "$.agentIpAddress"
+    health:
+      - name: rancher_host_status_template
+        spec:
+          check_id: "|'rancher_host_%s_status' % item['id']"
+          check_name: "HostAvailable"
+          topo_identifier: "|uid('rancher', 'host', item['id'])"
+          health: |
+            if item["state"] == "active":
+              if item.get("agentState", "active") == "active":
+                state = "CLEAR"
+              else:
+                state = "DEVIATING"
+                health.message = "Agent Disconnected"
+            else:
+              state = "CRITICAL"
+              health.message = "Host Inactive"
+            state

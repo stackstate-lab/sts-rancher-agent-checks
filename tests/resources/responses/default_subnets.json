@@ -1,0 +1,92 @@
+{
+  "type": "collection",
+  "resourceType": "subnet",
+  "links": {
+    "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets"
+  },
+  "createTypes": {},
+  "actions": {},
+  "data": [
+    {
+      "id": "1s1",
+      "type": "subnet",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets/1s1",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets/1s1/account",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets/1s1/ipaddresses",
+        "network": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets/1s1/network"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets/1s1/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets/1s1/?action=deactivate"
+      },
+      "baseType": "subnet",
+      "name": null,
+      "state": "active",
+      "accountId": "1a5",
+      "cidrSize": 16,
+      "created": "2022-07-21T08:46:16Z",
+      "createdTS": 1658393176000,
+      "description": null,
+      "endAddress": "10.42.255.250",
+      "gateway": "10.42.0.1",
+      "kind": "subnet",
+      "networkAddress": "10.42.0.0",
+      "networkId": "1n5",
+      "removed": null,
+      "startAddress": "10.42.0.2",
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "48f1d0a6-a1fc-4755-856a-76b2d61b791e"
+    }
+  ],
+  "sortLinks": {
+    "accountId": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=accountId",
+    "cidrSize": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=cidrSize",
+    "created": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=created",
+    "description": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=description",
+    "endAddress": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=endAddress",
+    "gateway": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=gateway",
+    "id": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=id",
+    "isPublic": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=isPublic",
+    "kind": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=kind",
+    "name": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=name",
+    "networkAddress": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=networkAddress",
+    "networkId": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=networkId",
+    "removeTime": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=removeTime",
+    "removed": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=removed",
+    "startAddress": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=startAddress",
+    "state": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=state",
+    "uuid": "http://192.168.56.30:8080/v2-beta/projects/1a5/subnets?sort=uuid"
+  },
+  "pagination": {
+    "first": null,
+    "previous": null,
+    "next": null,
+    "limit": 100,
+    "total": null,
+    "partial": false
+  },
+  "sort": null,
+  "filters": {
+    "accountId": null,
+    "cidrSize": null,
+    "created": null,
+    "description": null,
+    "endAddress": null,
+    "gateway": null,
+    "id": null,
+    "isPublic": null,
+    "kind": null,
+    "name": null,
+    "networkAddress": null,
+    "networkId": null,
+    "removeTime": null,
+    "removed": null,
+    "startAddress": null,
+    "state": null,
+    "uuid": null
+  },
+  "createDefaults": {}
+}

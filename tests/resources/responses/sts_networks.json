@@ -1,0 +1,262 @@
+{
+  "type": "collection",
+  "resourceType": "network",
+  "links": {
+    "self": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks"
+  },
+  "createTypes": {
+    "network": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks"
+  },
+  "actions": {},
+  "data": [
+    {
+      "id": "1n11",
+      "type": "network",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n11",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n11/account",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n11/ipaddresses",
+        "subnets": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n11/subnets"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n11/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n11/?action=deactivate"
+      },
+      "baseType": "network",
+      "name": "Docker Host Network Mode",
+      "state": "active",
+      "accountId": "1a17",
+      "created": "2022-07-21T10:11:48Z",
+      "createdTS": 1658398308000,
+      "defaultPolicyAction": null,
+      "description": null,
+      "dns": null,
+      "dnsSearch": null,
+      "hostPorts": false,
+      "kind": "dockerHost",
+      "metadata": null,
+      "networkDriverId": null,
+      "policy": null,
+      "removed": null,
+      "subnets": null,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "8fb8d63f-6695-42e2-a966-6582ec88f6b2"
+    },
+    {
+      "id": "1n12",
+      "type": "network",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n12",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n12/account",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n12/ipaddresses",
+        "subnets": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n12/subnets"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n12/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n12/?action=deactivate"
+      },
+      "baseType": "network",
+      "name": "Docker None Network Mode",
+      "state": "active",
+      "accountId": "1a17",
+      "created": "2022-07-21T10:11:48Z",
+      "createdTS": 1658398308000,
+      "defaultPolicyAction": null,
+      "description": null,
+      "dns": null,
+      "dnsSearch": null,
+      "hostPorts": false,
+      "kind": "dockerNone",
+      "metadata": null,
+      "networkDriverId": null,
+      "policy": null,
+      "removed": null,
+      "subnets": null,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "67e83120-b64f-47be-92b9-fa256aea19fc"
+    },
+    {
+      "id": "1n13",
+      "type": "network",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n13",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n13/account",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n13/ipaddresses",
+        "subnets": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n13/subnets"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n13/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n13/?action=deactivate"
+      },
+      "baseType": "network",
+      "name": "Docker Container Network Mode",
+      "state": "active",
+      "accountId": "1a17",
+      "created": "2022-07-21T10:11:48Z",
+      "createdTS": 1658398308000,
+      "defaultPolicyAction": null,
+      "description": null,
+      "dns": null,
+      "dnsSearch": null,
+      "hostPorts": false,
+      "kind": "dockerContainer",
+      "metadata": null,
+      "networkDriverId": null,
+      "policy": null,
+      "removed": null,
+      "subnets": null,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "91359968-39a3-450f-96f5-3c9ff2321989"
+    },
+    {
+      "id": "1n14",
+      "type": "network",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n14",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n14/account",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n14/ipaddresses",
+        "subnets": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n14/subnets"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n14/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n14/?action=deactivate"
+      },
+      "baseType": "network",
+      "name": "Docker Bridge Network Mode",
+      "state": "active",
+      "accountId": "1a17",
+      "created": "2022-07-21T10:11:48Z",
+      "createdTS": 1658398308000,
+      "defaultPolicyAction": null,
+      "description": null,
+      "dns": null,
+      "dnsSearch": null,
+      "hostPorts": false,
+      "kind": "dockerBridge",
+      "metadata": null,
+      "networkDriverId": null,
+      "policy": null,
+      "removed": null,
+      "subnets": null,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "f79fb3e2-91a7-4245-b18e-dcc4cf1eaad0"
+    },
+    {
+      "id": "1n15",
+      "type": "network",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15/account",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15/ipaddresses",
+        "networkDriver": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15/networkdriver",
+        "subnets": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15/subnets"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks/1n15/?action=deactivate"
+      },
+      "baseType": "network",
+      "name": "ipsec",
+      "state": "active",
+      "accountId": "1a17",
+      "created": "2022-07-21T10:11:49Z",
+      "createdTS": 1658398309000,
+      "defaultPolicyAction": "allow",
+      "description": null,
+      "dns": [
+        "169.254.169.250"
+      ],
+      "dnsSearch": [
+        "rancher.internal"
+      ],
+      "hostPorts": true,
+      "kind": "cni",
+      "metadata": {
+        "cniConfig": {
+          "10-rancher.conf": {
+            "bridge": "docker0",
+            "bridgeSubnet": "10.42.0.0/16",
+            "hairpinMode": false,
+            "hostNat": true,
+            "ipam": {
+              "isDebugLevel": "false",
+              "logToFile": "/var/log/rancher-cni.log",
+              "subnetPrefixSize": "/16",
+              "type": "rancher-cni-ipam"
+            },
+            "isDebugLevel": "false",
+            "isDefaultGateway": true,
+            "linkMTUOverhead": 98,
+            "logToFile": "/var/log/rancher-cni.log",
+            "mtu": 1500,
+            "name": "rancher-cni-network",
+            "promiscMode": true,
+            "type": "rancher-bridge"
+          }
+        }
+      },
+      "networkDriverId": "1nd3",
+      "policy": null,
+      "removed": null,
+      "subnets": [
+        {
+          "type": "subnet",
+          "cidrSize": 24,
+          "networkAddress": "10.42.0.0/16"
+        }
+      ],
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "4bebc5dc-bbb6-4add-9bfd-3eedc9284beb"
+    }
+  ],
+  "sortLinks": {
+    "accountId": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=accountId",
+    "created": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=created",
+    "description": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=description",
+    "domain": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=domain",
+    "id": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=id",
+    "isPublic": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=isPublic",
+    "kind": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=kind",
+    "name": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=name",
+    "networkDriverId": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=networkDriverId",
+    "removeTime": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=removeTime",
+    "removed": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=removed",
+    "state": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=state",
+    "uuid": "http://192.168.56.30:8080/v2-beta/projects/1a17/networks?sort=uuid"
+  },
+  "pagination": {
+    "first": null,
+    "previous": null,
+    "next": null,
+    "limit": 100,
+    "total": null,
+    "partial": false
+  },
+  "sort": null,
+  "filters": {
+    "accountId": null,
+    "created": null,
+    "description": null,
+    "domain": null,
+    "id": null,
+    "isPublic": null,
+    "kind": null,
+    "name": null,
+    "networkDriverId": null,
+    "removeTime": null,
+    "removed": null,
+    "state": null,
+    "uuid": null
+  },
+  "createDefaults": {}
+}

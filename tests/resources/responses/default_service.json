@@ -1,0 +1,951 @@
+{
+  "type": "collection",
+  "resourceType": "service",
+  "links": {
+    "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/service"
+  },
+  "createTypes": {
+    "dnsService": "http://192.168.56.30:8080/v2-beta/projects/1a5/dnsservices",
+    "externalService": "http://192.168.56.30:8080/v2-beta/projects/1a5/externalservices",
+    "loadBalancerService": "http://192.168.56.30:8080/v2-beta/projects/1a5/loadbalancerservices",
+    "networkDriverService": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices",
+    "service": "http://192.168.56.30:8080/v2-beta/projects/1a5/services",
+    "storageDriverService": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagedriverservices"
+  },
+  "actions": {},
+  "data": [
+    {
+      "id": "1s1",
+      "type": "networkDriverService",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/account",
+        "consumedbyservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/consumedbyservices",
+        "consumedservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/consumedservices",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/instances",
+        "networkDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/networkdrivers",
+        "serviceExposeMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/serviceexposemaps",
+        "serviceLogs": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/servicelogs",
+        "stack": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/stack",
+        "storageDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/storagedrivers"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=upgrade",
+        "restart": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=restart",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=update",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=remove",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=deactivate",
+        "removeservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=removeservicelink",
+        "addservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=addservicelink",
+        "setservicelinks": "http://192.168.56.30:8080/v2-beta/projects/1a5/networkdriverservices/1s1/?action=setservicelinks"
+      },
+      "baseType": "service",
+      "name": "cni-driver",
+      "state": "active",
+      "accountId": "1a5",
+      "assignServiceIpAddress": false,
+      "createIndex": 1,
+      "created": "2022-07-21T08:46:15Z",
+      "createdTS": 1658393175000,
+      "currentScale": 1,
+      "description": null,
+      "externalId": null,
+      "fqdn": null,
+      "healthState": "healthy",
+      "instanceIds": [
+        "1i1"
+      ],
+      "kind": "networkDriverService",
+      "launchConfig": {
+        "type": "launchConfig",
+        "command": [
+          "start-cni-driver.sh"
+        ],
+        "dataVolumes": [
+          "/var/run/docker.sock:/var/run/docker.sock",
+          "rancher-cni-driver:/opt/cni-driver"
+        ],
+        "environment": {
+          "RANCHER_DEBUG": "false"
+        },
+        "imageUuid": "docker:rancher/net:v0.13.17",
+        "instanceTriggeredStop": "stop",
+        "kind": "container",
+        "labels": {
+          "io.rancher.container.dns": "true",
+          "io.rancher.network.cni.binary": "rancher-bridge",
+          "io.rancher.scheduler.global": "true",
+          "io.rancher.service.hash": "f238f79291367ef4dfc80f4fd9f9b2e7255a4ba1"
+        },
+        "logConfig": {
+          "type": "logConfig",
+          "config": {
+            "max-file": "2",
+            "max-size": "25m"
+          },
+          "driver": "json-file"
+        },
+        "networkMode": "host",
+        "pidMode": "host",
+        "privileged": true,
+        "publishAllPorts": false,
+        "readOnly": false,
+        "runInit": false,
+        "startOnCreate": true,
+        "stdinOpen": false,
+        "system": false,
+        "tty": false,
+        "version": "0",
+        "vcpu": 1,
+        "drainTimeoutMs": 0
+      },
+      "lbConfig": null,
+      "linkedServices": null,
+      "metadata": {
+        "io.rancher.service.hash": "724952fce9df462fcb3940566788ae18fe4d5ec4"
+      },
+      "networkDriver": {
+        "type": "networkDriver",
+        "name": "Rancher IPsec",
+        "defaultNetwork": {
+          "type": "defaultNetwork",
+          "defaultPolicyAction": "allow",
+          "dns": [
+            "169.254.169.250"
+          ],
+          "dnsSearch": [
+            "rancher.internal"
+          ],
+          "hostPorts": true,
+          "name": "ipsec",
+          "subnets": [
+            {
+              "type": "subnet",
+              "cidrSize": 24,
+              "networkAddress": "10.42.0.0/16"
+            }
+          ]
+        },
+        "cniConfig": {
+          "10-rancher.conf": {
+            "bridge": "docker0",
+            "bridgeSubnet": "10.42.0.0/16",
+            "hairpinMode": false,
+            "hostNat": true,
+            "ipam": {
+              "isDebugLevel": "false",
+              "logToFile": "/var/log/rancher-cni.log",
+              "subnetPrefixSize": "/16",
+              "type": "rancher-cni-ipam"
+            },
+            "isDebugLevel": "false",
+            "isDefaultGateway": true,
+            "linkMTUOverhead": 98,
+            "logToFile": "/var/log/rancher-cni.log",
+            "mtu": 1500,
+            "name": "rancher-cni-network",
+            "promiscMode": true,
+            "type": "rancher-bridge"
+          }
+        }
+      },
+      "publicEndpoints": null,
+      "removed": null,
+      "retainIp": null,
+      "scale": 1,
+      "scalePolicy": null,
+      "secondaryLaunchConfigs": [],
+      "selectorContainer": null,
+      "selectorLink": null,
+      "stackId": "1st2",
+      "startOnCreate": false,
+      "system": true,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "upgrade": null,
+      "uuid": "ed62c435-8248-4cdd-a0c7-9b2ce0432993",
+      "vip": null
+    },
+    {
+      "id": "1s2",
+      "type": "service",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/account",
+        "consumedbyservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/consumedbyservices",
+        "consumedservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/consumedservices",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/instances",
+        "networkDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/networkdrivers",
+        "serviceExposeMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/serviceexposemaps",
+        "serviceLogs": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/servicelogs",
+        "stack": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/stack",
+        "storageDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/storagedrivers",
+        "containerStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/containerstats"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=upgrade",
+        "restart": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=restart",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=update",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=remove",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=deactivate",
+        "removeservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=removeservicelink",
+        "addservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=addservicelink",
+        "setservicelinks": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s2/?action=setservicelinks"
+      },
+      "baseType": "service",
+      "name": "healthcheck",
+      "state": "active",
+      "accountId": "1a5",
+      "assignServiceIpAddress": false,
+      "createIndex": 1,
+      "created": "2022-07-21T08:46:15Z",
+      "createdTS": 1658393175000,
+      "currentScale": 1,
+      "description": null,
+      "externalId": null,
+      "fqdn": null,
+      "healthState": "healthy",
+      "instanceIds": [
+        "1i2"
+      ],
+      "kind": "service",
+      "launchConfig": {
+        "type": "launchConfig",
+        "command": [
+          "healthcheck",
+          "--metadata-address",
+          "169.254.169.250"
+        ],
+        "healthCheck": {
+          "type": "instanceHealthCheck",
+          "healthyThreshold": 2,
+          "initializingTimeout": 60000,
+          "interval": 2000,
+          "port": 42,
+          "reinitializingTimeout": 60000,
+          "responseTimeout": 2000,
+          "strategy": "recreate",
+          "unhealthyThreshold": 3
+        },
+        "imageUuid": "docker:rancher/healthcheck:v0.3.8",
+        "instanceTriggeredStop": "stop",
+        "kind": "container",
+        "labels": {
+          "io.rancher.container.create_agent": "true",
+          "io.rancher.scheduler.global": "true",
+          "io.rancher.service.hash": "847e4904fb522c92dcd9d854272ca446683e5a84"
+        },
+        "logConfig": {
+          "type": "logConfig",
+          "config": {
+            "max-file": "2",
+            "max-size": "25m"
+          },
+          "driver": "json-file"
+        },
+        "networkMode": "managed",
+        "privileged": false,
+        "publishAllPorts": false,
+        "readOnly": false,
+        "runInit": false,
+        "startOnCreate": true,
+        "stdinOpen": false,
+        "system": false,
+        "tty": false,
+        "version": "0",
+        "vcpu": 1,
+        "drainTimeoutMs": 0
+      },
+      "lbConfig": null,
+      "linkedServices": null,
+      "metadata": {
+        "io.rancher.service.hash": "178236e363c0a791a630718e6774a9be67cd29a5"
+      },
+      "publicEndpoints": null,
+      "removed": null,
+      "retainIp": null,
+      "scale": 1,
+      "scalePolicy": null,
+      "secondaryLaunchConfigs": [],
+      "selectorContainer": null,
+      "selectorLink": null,
+      "stackId": "1st1",
+      "startOnCreate": false,
+      "system": true,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "upgrade": null,
+      "uuid": "c86f3e7d-ad86-4f2a-8cbc-3de5fe5d116a",
+      "vip": null
+    },
+    {
+      "id": "1s3",
+      "type": "service",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/account",
+        "consumedbyservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/consumedbyservices",
+        "consumedservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/consumedservices",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/instances",
+        "networkDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/networkdrivers",
+        "serviceExposeMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/serviceexposemaps",
+        "serviceLogs": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/servicelogs",
+        "stack": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/stack",
+        "storageDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/storagedrivers",
+        "containerStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/containerstats"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=upgrade",
+        "restart": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=restart",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=update",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=remove",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=deactivate",
+        "removeservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=removeservicelink",
+        "addservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=addservicelink",
+        "setservicelinks": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s3/?action=setservicelinks"
+      },
+      "baseType": "service",
+      "name": "scheduler",
+      "state": "active",
+      "accountId": "1a5",
+      "assignServiceIpAddress": false,
+      "createIndex": 2,
+      "created": "2022-07-21T08:46:15Z",
+      "createdTS": 1658393175000,
+      "currentScale": 0,
+      "description": null,
+      "externalId": null,
+      "fqdn": null,
+      "healthState": "unhealthy",
+      "instanceIds": null,
+      "kind": "service",
+      "launchConfig": {
+        "type": "launchConfig",
+        "command": [
+          "scheduler",
+          "--metadata-address",
+          "169.254.169.250"
+        ],
+        "environment": {
+          "RANCHER_DEBUG": "false"
+        },
+        "healthCheck": {
+          "type": "instanceHealthCheck",
+          "healthyThreshold": 2,
+          "initializingTimeout": 10000,
+          "interval": 2000,
+          "port": 80,
+          "reinitializingTimeout": 10000,
+          "requestLine": "GET /healthcheck HTTP/1.0",
+          "responseTimeout": 30000,
+          "strategy": "recreate",
+          "unhealthyThreshold": 3
+        },
+        "imageUuid": "docker:rancher/scheduler:v0.8.6",
+        "instanceTriggeredStop": "stop",
+        "kind": "container",
+        "labels": {
+          "io.rancher.container.agent_service.scheduling": "true",
+          "io.rancher.container.create_agent": "true",
+          "io.rancher.service.hash": "372be7a3e1e01015497307d155751d72cdeba246"
+        },
+        "logConfig": {
+          "type": "logConfig",
+          "config": {
+            "max-file": "2",
+            "max-size": "25m"
+          },
+          "driver": "json-file"
+        },
+        "networkMode": "managed",
+        "privileged": false,
+        "publishAllPorts": false,
+        "readOnly": false,
+        "runInit": false,
+        "startOnCreate": true,
+        "stdinOpen": false,
+        "system": false,
+        "tty": false,
+        "version": "0",
+        "vcpu": 1,
+        "drainTimeoutMs": 0
+      },
+      "lbConfig": null,
+      "linkedServices": null,
+      "metadata": {
+        "io.rancher.service.hash": "a4240e120497efe2804089be280d01ce24247b50"
+      },
+      "publicEndpoints": null,
+      "removed": null,
+      "retainIp": null,
+      "scale": 1,
+      "scalePolicy": null,
+      "secondaryLaunchConfigs": [],
+      "selectorContainer": null,
+      "selectorLink": null,
+      "stackId": "1st4",
+      "startOnCreate": false,
+      "system": true,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "upgrade": null,
+      "uuid": "38bea8ec-e824-4156-80b1-9bc14cbed987",
+      "vip": null
+    },
+    {
+      "id": "1s4",
+      "type": "service",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/account",
+        "consumedbyservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/consumedbyservices",
+        "consumedservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/consumedservices",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/instances",
+        "networkDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/networkdrivers",
+        "serviceExposeMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/serviceexposemaps",
+        "serviceLogs": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/servicelogs",
+        "stack": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/stack",
+        "storageDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/storagedrivers",
+        "containerStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/containerstats"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=upgrade",
+        "restart": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=restart",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=update",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=remove",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=deactivate",
+        "removeservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=removeservicelink",
+        "addservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=addservicelink",
+        "setservicelinks": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s4/?action=setservicelinks"
+      },
+      "baseType": "service",
+      "name": "ipsec",
+      "state": "active",
+      "accountId": "1a5",
+      "assignServiceIpAddress": false,
+      "createIndex": 3,
+      "created": "2022-07-21T08:46:15Z",
+      "createdTS": 1658393175000,
+      "currentScale": 1,
+      "description": null,
+      "externalId": null,
+      "fqdn": null,
+      "healthState": "healthy",
+      "instanceIds": [
+        "1i6",
+        "1i8",
+        "1i9"
+      ],
+      "kind": "service",
+      "launchConfig": {
+        "type": "launchConfig",
+        "command": [
+          "sh",
+          "-c",
+          "echo Refer to router sidekick for logs; mkfifo f; exec cat f"
+        ],
+        "healthCheck": {
+          "type": "instanceHealthCheck",
+          "healthyThreshold": 2,
+          "initializingTimeout": 60000,
+          "interval": 5000,
+          "port": 80,
+          "reinitializingTimeout": 60000,
+          "requestLine": "GET \"/connectivity\" \"HTTP/1.0\"",
+          "responseTimeout": 2000,
+          "strategy": "none",
+          "unhealthyThreshold": 3
+        },
+        "imageUuid": "docker:rancher/net:holder",
+        "instanceTriggeredStop": "stop",
+        "kind": "container",
+        "labels": {
+          "io.rancher.cni.link_mtu_overhead": "0",
+          "io.rancher.network.arpsync": "true",
+          "io.rancher.network.macsync": "true",
+          "io.rancher.scheduler.global": "true",
+          "io.rancher.service.hash": "46a7af875e9f796239e1652d545e5a4ffbba7e4c",
+          "io.rancher.sidekicks": "router,connectivity-check"
+        },
+        "logConfig": {
+          "type": "logConfig"
+        },
+        "networkMode": "ipsec",
+        "ports": [
+          "0.0.0.0:500:500/udp",
+          "0.0.0.0:4500:4500/udp"
+        ],
+        "privileged": false,
+        "publishAllPorts": false,
+        "readOnly": false,
+        "runInit": false,
+        "startOnCreate": true,
+        "stdinOpen": false,
+        "system": false,
+        "tty": false,
+        "version": "0",
+        "vcpu": 1,
+        "drainTimeoutMs": 0
+      },
+      "lbConfig": null,
+      "linkedServices": null,
+      "metadata": {
+        "io.rancher.service.hash": "db6a905d8fdbf59849767fd96f56d19ec06dbc5b"
+      },
+      "publicEndpoints": [
+        {
+          "type": "publicEndpoint",
+          "hostId": "1h1",
+          "instanceId": "1i6",
+          "ipAddress": "172.17.0.1",
+          "port": 500,
+          "serviceId": "1s4"
+        },
+        {
+          "type": "publicEndpoint",
+          "hostId": "1h1",
+          "instanceId": "1i6",
+          "ipAddress": "172.17.0.1",
+          "port": 4500,
+          "serviceId": "1s4"
+        }
+      ],
+      "removed": null,
+      "retainIp": null,
+      "scale": 1,
+      "scalePolicy": null,
+      "secondaryLaunchConfigs": [
+        {
+          "type": "secondaryLaunchConfig",
+          "capAdd": [
+            "NET_ADMIN"
+          ],
+          "command": [
+            "start-ipsec.sh"
+          ],
+          "environment": {
+            "IPSEC_CHILD_SA_REKEY_INTERVAL": "1h",
+            "IPSEC_IKE_SA_REKEY_INTERVAL": "4h",
+            "IPSEC_REPLAY_WINDOW_SIZE": "1024",
+            "RANCHER_DEBUG": "false",
+            "RANCHER_IPSEC_PSK": ""
+          },
+          "imageUuid": "docker:rancher/net:v0.13.17",
+          "instanceTriggeredStop": "stop",
+          "kind": "container",
+          "labels": {
+            "io.rancher.container.agent_service.ipsec": "true",
+            "io.rancher.container.create_agent": "true",
+            "io.rancher.service.hash": "1d007b54c64a38fd23bef213bedcb8f7b4b887ff"
+          },
+          "logConfig": {
+            "type": "logConfig",
+            "config": {
+              "max-file": "2",
+              "max-size": "25m"
+            },
+            "driver": "json-file"
+          },
+          "name": "router",
+          "networkLaunchConfig": "ipsec",
+          "networkMode": "container",
+          "privileged": false,
+          "publishAllPorts": false,
+          "readOnly": false,
+          "runInit": false,
+          "startOnCreate": true,
+          "stdinOpen": false,
+          "sysctls": {
+            "net.ipv4.conf.all.send_redirects": "0",
+            "net.ipv4.conf.default.send_redirects": "0",
+            "net.ipv4.conf.eth0.send_redirects": "0",
+            "net.ipv4.xfrm4_gc_thresh": "2147483647"
+          },
+          "system": false,
+          "tty": false,
+          "vcpu": 1,
+          "version": "0"
+        },
+        {
+          "type": "secondaryLaunchConfig",
+          "command": [
+            "connectivity-check",
+            "--connectivity-check-interval",
+            "10000",
+            "--peer-connection-timeout",
+            "60000"
+          ],
+          "environment": {
+            "RANCHER_DEBUG": "false"
+          },
+          "imageUuid": "docker:rancher/net:v0.13.17",
+          "instanceTriggeredStop": "stop",
+          "kind": "container",
+          "labels": {
+            "io.rancher.service.hash": "24e3f0c7154b4a838c6bf9db596e5759d903a6e7"
+          },
+          "logConfig": {
+            "type": "logConfig"
+          },
+          "name": "connectivity-check",
+          "networkLaunchConfig": "ipsec",
+          "networkMode": "container",
+          "privileged": false,
+          "publishAllPorts": false,
+          "readOnly": false,
+          "runInit": false,
+          "startOnCreate": true,
+          "stdinOpen": false,
+          "system": false,
+          "tty": false,
+          "vcpu": 1,
+          "version": "0"
+        }
+      ],
+      "selectorContainer": null,
+      "selectorLink": null,
+      "stackId": "1st2",
+      "startOnCreate": false,
+      "system": true,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "upgrade": null,
+      "uuid": "df017ba3-8b8b-42a0-9fa6-041fc884253a",
+      "vip": null
+    },
+    {
+      "id": "1s5",
+      "type": "service",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/account",
+        "consumedbyservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/consumedbyservices",
+        "consumedservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/consumedservices",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/instances",
+        "networkDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/networkdrivers",
+        "serviceExposeMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/serviceexposemaps",
+        "serviceLogs": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/servicelogs",
+        "stack": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/stack",
+        "storageDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/storagedrivers",
+        "containerStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/containerstats"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=upgrade",
+        "restart": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=restart",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=update",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=remove",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=deactivate",
+        "removeservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=removeservicelink",
+        "addservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=addservicelink",
+        "setservicelinks": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s5/?action=setservicelinks"
+      },
+      "baseType": "service",
+      "name": "network-manager",
+      "state": "active",
+      "accountId": "1a5",
+      "assignServiceIpAddress": false,
+      "createIndex": 1,
+      "created": "2022-07-21T08:46:16Z",
+      "createdTS": 1658393176000,
+      "currentScale": 1,
+      "description": null,
+      "externalId": null,
+      "fqdn": null,
+      "healthState": "healthy",
+      "instanceIds": [
+        "1i4"
+      ],
+      "kind": "service",
+      "launchConfig": {
+        "type": "launchConfig",
+        "command": [
+          "plugin-manager",
+          "--disable-cni-setup",
+          "--metadata-address",
+          "169.254.169.250",
+          "--arpsync-interval",
+          "5"
+        ],
+        "dataVolumes": [
+          "/var/run/docker.sock:/var/run/docker.sock",
+          "/var/lib/docker:/var/lib/docker",
+          "/var/lib/rancher/state:/var/lib/rancher/state",
+          "/lib/modules:/lib/modules:ro",
+          "/run:/run",
+          "/var/run:/var/run:ro",
+          "rancher-cni-driver:/etc/cni",
+          "rancher-cni-driver:/opt/cni"
+        ],
+        "environment": {
+          "DOCKER_BRIDGE": "docker0",
+          "METADATA_IP": "169.254.169.250"
+        },
+        "imageUuid": "docker:rancher/network-manager:v0.7.22",
+        "instanceTriggeredStop": "stop",
+        "kind": "container",
+        "labels": {
+          "io.rancher.scheduler.global": "true",
+          "io.rancher.service.hash": "5550ec58b892f552d71bca073800f8568968eceb"
+        },
+        "logConfig": {
+          "type": "logConfig",
+          "config": {
+            "max-file": "2",
+            "max-size": "25m"
+          },
+          "driver": "json-file"
+        },
+        "networkMode": "host",
+        "pidMode": "host",
+        "privileged": true,
+        "publishAllPorts": false,
+        "readOnly": false,
+        "runInit": false,
+        "startOnCreate": true,
+        "stdinOpen": false,
+        "system": false,
+        "tty": false,
+        "version": "0",
+        "vcpu": 1,
+        "drainTimeoutMs": 0
+      },
+      "lbConfig": null,
+      "linkedServices": null,
+      "metadata": {
+        "io.rancher.service.hash": "9d3b545c0864c96ab6b7f4e4646ad0e81b312717"
+      },
+      "publicEndpoints": null,
+      "removed": null,
+      "retainIp": null,
+      "scale": 1,
+      "scalePolicy": null,
+      "secondaryLaunchConfigs": [],
+      "selectorContainer": null,
+      "selectorLink": null,
+      "stackId": "1st3",
+      "startOnCreate": false,
+      "system": true,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "upgrade": null,
+      "uuid": "3591388b-b18d-410f-a588-5a73ed5be20c",
+      "vip": null
+    },
+    {
+      "id": "1s6",
+      "type": "service",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/account",
+        "consumedbyservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/consumedbyservices",
+        "consumedservices": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/consumedservices",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/instances",
+        "networkDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/networkdrivers",
+        "serviceExposeMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/serviceexposemaps",
+        "serviceLogs": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/servicelogs",
+        "stack": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/stack",
+        "storageDrivers": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/storagedrivers",
+        "containerStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/containerstats"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=upgrade",
+        "restart": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=restart",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=update",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=remove",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=deactivate",
+        "removeservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=removeservicelink",
+        "addservicelink": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=addservicelink",
+        "setservicelinks": "http://192.168.56.30:8080/v2-beta/projects/1a5/services/1s6/?action=setservicelinks"
+      },
+      "baseType": "service",
+      "name": "metadata",
+      "state": "active",
+      "accountId": "1a5",
+      "assignServiceIpAddress": false,
+      "createIndex": 2,
+      "created": "2022-07-21T08:46:16Z",
+      "createdTS": 1658393176000,
+      "currentScale": 1,
+      "description": null,
+      "externalId": null,
+      "fqdn": null,
+      "healthState": "healthy",
+      "instanceIds": [
+        "1i5",
+        "1i7"
+      ],
+      "kind": "service",
+      "launchConfig": {
+        "type": "launchConfig",
+        "capAdd": [
+          "NET_ADMIN"
+        ],
+        "command": [
+          "start.sh",
+          "rancher-metadata",
+          "-reload-interval-limit=1000",
+          "-subscribe"
+        ],
+        "cpuPeriod": 400000,
+        "cpuQuota": 200000,
+        "imageUuid": "docker:rancher/metadata:v0.10.4",
+        "instanceTriggeredStop": "stop",
+        "kind": "container",
+        "labels": {
+          "io.rancher.container.agent_service.metadata": "true",
+          "io.rancher.container.create_agent": "true",
+          "io.rancher.scheduler.global": "true",
+          "io.rancher.service.hash": "96b63a542c51764e15393540beb8901e72b22e5f",
+          "io.rancher.sidekicks": "dns"
+        },
+        "logConfig": {
+          "type": "logConfig",
+          "config": {
+            "max-file": "2",
+            "max-size": "25m"
+          },
+          "driver": "json-file"
+        },
+        "networkMode": "bridge",
+        "privileged": false,
+        "publishAllPorts": false,
+        "readOnly": false,
+        "runInit": false,
+        "startOnCreate": true,
+        "stdinOpen": false,
+        "sysctls": {
+          "net.ipv4.conf.all.send_redirects": "0",
+          "net.ipv4.conf.default.send_redirects": "0",
+          "net.ipv4.conf.eth0.send_redirects": "0"
+        },
+        "system": false,
+        "tty": false,
+        "version": "0",
+        "vcpu": 1,
+        "drainTimeoutMs": 0
+      },
+      "lbConfig": null,
+      "linkedServices": null,
+      "metadata": {
+        "io.rancher.service.hash": "b41f4758a9b29fc02d01fa2656e325c1813832fb"
+      },
+      "publicEndpoints": null,
+      "removed": null,
+      "retainIp": null,
+      "scale": 1,
+      "scalePolicy": null,
+      "secondaryLaunchConfigs": [
+        {
+          "type": "secondaryLaunchConfig",
+          "command": [
+            "rancher-dns",
+            "--listen",
+            "169.254.169.250:53",
+            "--metadata-server=localhost",
+            "--answers=/etc/rancher-dns/answers.json",
+            "--recurser-timeout",
+            "2",
+            "--ttl",
+            "1"
+          ],
+          "imageUuid": "docker:rancher/dns:v0.17.4",
+          "instanceTriggeredStop": "stop",
+          "kind": "container",
+          "labels": {
+            "io.rancher.scheduler.global": "true",
+            "io.rancher.service.hash": "863502bc551ed8d499adb945664f43ddaec3843e"
+          },
+          "logConfig": {
+            "type": "logConfig",
+            "config": {
+              "max-file": "2",
+              "max-size": "25m"
+            },
+            "driver": "json-file"
+          },
+          "name": "dns",
+          "networkLaunchConfig": "metadata",
+          "networkMode": "container",
+          "privileged": false,
+          "publishAllPorts": false,
+          "readOnly": false,
+          "runInit": false,
+          "startOnCreate": true,
+          "stdinOpen": false,
+          "system": false,
+          "tty": false,
+          "vcpu": 1,
+          "version": "0"
+        }
+      ],
+      "selectorContainer": null,
+      "selectorLink": null,
+      "stackId": "1st3",
+      "startOnCreate": false,
+      "system": true,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "upgrade": null,
+      "uuid": "ffb0bdcc-e47d-445e-a32e-283b52c59ec9",
+      "vip": null
+    }
+  ],
+  "sortLinks": {
+    "accountId": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=accountId",
+    "createIndex": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=createIndex",
+    "created": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=created",
+    "description": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=description",
+    "externalId": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=externalId",
+    "healthState": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=healthState",
+    "id": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=id",
+    "kind": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=kind",
+    "name": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=name",
+    "removeTime": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=removeTime",
+    "removed": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=removed",
+    "selectorContainer": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=selectorContainer",
+    "selectorLink": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=selectorLink",
+    "skip": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=skip",
+    "stackId": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=stackId",
+    "state": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=state",
+    "system": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=system",
+    "uuid": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=uuid",
+    "vip": "http://192.168.56.30:8080/v2-beta/projects/1a5/service?sort=vip"
+  },
+  "pagination": {
+    "first": null,
+    "previous": null,
+    "next": null,
+    "limit": 100,
+    "total": null,
+    "partial": false
+  },
+  "sort": null,
+  "filters": {
+    "accountId": null,
+    "createIndex": null,
+    "created": null,
+    "description": null,
+    "externalId": null,
+    "healthState": null,
+    "id": null,
+    "kind": null,
+    "name": null,
+    "removeTime": null,
+    "removed": null,
+    "selectorContainer": null,
+    "selectorLink": null,
+    "skip": null,
+    "stackId": null,
+    "state": null,
+    "system": null,
+    "uuid": null,
+    "vip": null
+  },
+  "createDefaults": {}
+}

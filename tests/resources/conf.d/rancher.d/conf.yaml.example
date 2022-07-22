@@ -1,0 +1,16 @@
+init_config:
+
+instances:
+  - instance_url: "rancher"
+    instance_type: rancher
+    collection_interval: 300
+    rancher:
+      url: "https://172.16.253.200"
+      username: "B1154372FD0975FBDC8B"
+      password: "DPTZrUKf87XFpd2jC99m5e74AkJSAgJFPPKx1d2q"
+    domain: "Rancher"
+    layer: "Machines"
+    etl:
+      refs:
+        - "module_dir://sts_rancher_impl.templates"
+

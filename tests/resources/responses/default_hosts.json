@@ -1,0 +1,230 @@
+{
+  "type": "collection",
+  "resourceType": "host",
+  "links": {
+    "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts"
+  },
+  "createTypes": {},
+  "actions": {},
+  "data": [
+    {
+      "id": "1h1",
+      "type": "host",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/account",
+        "clusters": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/clusters",
+        "containerEvents": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/containerevents",
+        "healthcheckInstanceHostMaps": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/healthcheckinstancehostmaps",
+        "hostLabels": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/hostlabels",
+        "hosts": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/hosts",
+        "instances": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/instances",
+        "ipAddresses": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/ipaddresses",
+        "physicalHost": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/physicalhost",
+        "serviceEvents": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/serviceevents",
+        "storagePools": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/storagepools",
+        "volumes": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/volumes",
+        "stats": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/stats",
+        "hostStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/hoststats",
+        "containerStats": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/containerstats"
+      },
+      "actions": {
+        "upgrade": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=upgrade",
+        "evacuate": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=evacuate",
+        "provision": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=provision",
+        "dockersocket": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=dockersocket",
+        "activate": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=activate",
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=update",
+        "delete": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=delete",
+        "remove": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts/1h1/?action=remove"
+      },
+      "baseType": "host",
+      "name": null,
+      "state": "inactive",
+      "accountId": "1a5",
+      "agentIpAddress": "172.17.0.1",
+      "agentState": "disconnected",
+      "amazonec2Config": null,
+      "authCertificateAuthority": null,
+      "authKey": null,
+      "azureConfig": null,
+      "computeTotal": 1000000,
+      "created": "2022-07-21T09:45:18Z",
+      "createdTS": 1658396718000,
+      "description": null,
+      "digitaloceanConfig": null,
+      "dockerVersion": null,
+      "driver": null,
+      "engineEnv": null,
+      "engineInsecureRegistry": null,
+      "engineInstallUrl": null,
+      "engineLabel": null,
+      "engineOpt": null,
+      "engineRegistryMirror": null,
+      "engineStorageDriver": null,
+      "hostTemplateId": null,
+      "hostname": "rancher-server",
+      "info": {
+        "iopsInfo": {},
+        "memoryInfo": {
+          "active": 1651,
+          "buffers": 242,
+          "cached": 1691,
+          "inactive": 1330,
+          "memAvailable": 2489,
+          "memFree": 673,
+          "memTotal": 3944,
+          "swapCached": 0,
+          "swapfree": 979,
+          "swaptotal": 979
+        },
+        "osInfo": {
+          "dockerVersion": "Docker version 20.10.17, build a89b842",
+          "kernelVersion": "4.15.0",
+          "operatingSystem": "Ubuntu 18.04.3 LTS"
+        },
+        "cloudProvider": null,
+        "hostKey": {
+          "data": "-----BEGIN RSA PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1xHxrhaYKUE7TLQm9gTv\n49+wPwzylhmCBMnYTTdopCKPJT0Hbh5PA7Zn5MrlCPELqSKoDE/yI3Vq7qTaYZ+m\nxlzfwy1jBLm+DojKmmom25PZwKhnwUyrYHSzvUU4le10xbfEFlFcUVcVVInsJ/78\nXhoSS+N4RxdFFzRDm16eyl6pogHzjKvJyrqQs1BT0a033lPlZBhgVgBXmwCYq9t+\nIPTCvRcDRYuRD4xWgaGedycrtXyu+g9OAFVf3aDoSJ+dxivBEHCltQv0u9yLVCHn\nc8Nps6F5yqfVCYCggvUTKl525pLvUcq1iQuWVpC9AmmHoOQ6QSZH1t5HlISKdSZb\n1wIDAQAB\n-----END RSA PUBLIC KEY-----\n"
+        },
+        "diskInfo": {
+          "dockerStorageDriver": "overlay2",
+          "dockerStorageDriverStatus": {},
+          "fileSystems": {
+            "/dev/mapper/vagrant--vg-root": {
+              "capacity": 63281
+            }
+          },
+          "mountPoints": {
+            "/dev/mapper/vagrant--vg-root": {
+              "free": 54811,
+              "percentage": 8.259713881818797,
+              "total": 63281,
+              "used": 5226
+            }
+          }
+        },
+        "cpuInfo": {
+          "count": 2,
+          "cpuCoresPercentages": [
+            0,
+            0.9900990098998755
+          ],
+          "loadAvg": [
+            "0.69",
+            "0.48",
+            "0.4"
+          ],
+          "mhz": 2304,
+          "modelName": "Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz"
+        }
+      },
+      "instanceIds": [
+        "1i1",
+        "1i4",
+        "1i2",
+        "1i5",
+        "1i7",
+        "1i6",
+        "1i8",
+        "1i9",
+        "1i10",
+        "1i21"
+      ],
+      "kind": "docker",
+      "labels": {
+        "io.rancher.host.agent_image": "rancher/agent:v1.2.11",
+        "io.rancher.host.docker_version": "20.10",
+        "io.rancher.host.linux_kernel_version": "4.15",
+        "io.rancher.host.os": "linux"
+      },
+      "localStorageMb": 58837938,
+      "memory": 4135583744,
+      "milliCpu": 2000,
+      "packetConfig": null,
+      "physicalHostId": "1ph1",
+      "publicEndpoints": [
+        {
+          "type": "publicEndpoint",
+          "hostId": "1h1",
+          "instanceId": "1i6",
+          "ipAddress": "172.17.0.1",
+          "port": 500,
+          "serviceId": "1s4"
+        },
+        {
+          "type": "publicEndpoint",
+          "hostId": "1h1",
+          "instanceId": "1i6",
+          "ipAddress": "172.17.0.1",
+          "port": 4500,
+          "serviceId": "1s4"
+        }
+      ],
+      "removed": null,
+      "stackId": null,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "a642d155-0480-4b31-87dd-637a84eaa1f7"
+    }
+  ],
+  "sortLinks": {
+    "accountId": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=accountId",
+    "agentState": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=agentState",
+    "computeFree": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=computeFree",
+    "computeTotal": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=computeTotal",
+    "created": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=created",
+    "description": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=description",
+    "hostTemplateId": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=hostTemplateId",
+    "id": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=id",
+    "isPublic": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=isPublic",
+    "kind": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=kind",
+    "localStorageMb": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=localStorageMb",
+    "memory": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=memory",
+    "milliCpu": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=milliCpu",
+    "name": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=name",
+    "physicalHostId": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=physicalHostId",
+    "removeAfter": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=removeAfter",
+    "removeTime": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=removeTime",
+    "removed": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=removed",
+    "stackId": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=stackId",
+    "state": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=state",
+    "uri": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=uri",
+    "uuid": "http://192.168.56.30:8080/v2-beta/projects/1a5/hosts?sort=uuid"
+  },
+  "pagination": {
+    "first": null,
+    "previous": null,
+    "next": null,
+    "limit": 100,
+    "total": null,
+    "partial": false
+  },
+  "sort": null,
+  "filters": {
+    "accountId": null,
+    "agentState": null,
+    "computeFree": null,
+    "computeTotal": null,
+    "created": null,
+    "description": null,
+    "hostTemplateId": null,
+    "id": null,
+    "isPublic": null,
+    "kind": null,
+    "localStorageMb": null,
+    "memory": null,
+    "milliCpu": null,
+    "name": null,
+    "physicalHostId": null,
+    "removeAfter": null,
+    "removeTime": null,
+    "removed": null,
+    "stackId": null,
+    "state": null,
+    "uri": null,
+    "uuid": null
+  },
+  "createDefaults": {}
+}
