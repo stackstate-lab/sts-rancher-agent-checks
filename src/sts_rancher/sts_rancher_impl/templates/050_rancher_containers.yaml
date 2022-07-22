@@ -1,0 +1,43 @@
+etl:
+  queries:
+    - name: rancher_containers
+      query: "rancher.get_resource_from_all_projects('containers')"
+      template_refs:
+        - rancher_container_template
+        - rancher_container_status_template
+  template:
+    components:
+      - name: rancher_container_template
+        spec:
+          name: "$.name"
+          type: "rancher-container"
+          uid: "|uid('rancher', 'container', item['id'])"
+          layer: "Rancher Containers"
+          domain: "$.project_name"
+          relations: |
+            relations = []
+            if item["serviceIds"]:
+              for service in item["serviceIds"]:
+                target_uid = uid('rancher', 'service', service)
+                relations.append('<%s' % target_uid)
+            relations
+          custom_properties:
+            ip: "$.labels.'io.rancher.container.ip'"
+            imageUuid: "$.imageUuid"
+            dns: "$.dns"
+            dnsSearch: "$.dnsSearch"
+    health:
+      - name: rancher_container_status_template
+        spec:
+          check_id: "|'rancher_container_%s_status' % item['id']"
+          check_name: "ContainerState"
+          topo_identifier: "|uid('rancher', 'container', item['id'])"
+          health: |
+            if item["state"] == "running":
+                state = "CLEAR"
+            elif item["state"] == "starting":
+                state = "DEVIATING"
+            else:
+              state = "CRITICAL"
+            state
+
