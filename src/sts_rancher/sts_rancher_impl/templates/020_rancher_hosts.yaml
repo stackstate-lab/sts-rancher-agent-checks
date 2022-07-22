@@ -27,7 +27,7 @@ etl:
           topo_identifier: "|uid('rancher', 'host', item['id'])"
           health: |
             if item["state"] == "active":
-              if item.get("agentState", "active") == "active":
+              if item["agentState"] is None:
                 state = "CLEAR"
               else:
                 state = "DEVIATING"
