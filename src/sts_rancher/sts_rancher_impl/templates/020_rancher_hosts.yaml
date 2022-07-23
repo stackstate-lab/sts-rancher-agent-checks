@@ -32,6 +32,7 @@ etl:
         selector: |
             cid = uid('rancher', 'endpoint', '%s:%s' % (item['instanceId'], item['port'] ))
             process = False if factory.component_exists(cid) else True
+            process
         spec:
           name: "|'%s:%s' % (item['ipAddress'], item['port'])"
           type: "rancher-endpoint"
