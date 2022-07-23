@@ -48,6 +48,8 @@ class RancherClient(object):
         for project_id, name in self._project_lookup.items():
             if project_id in exclude_projects:
                 continue
+            if len(self.spec.include_environment_ids) > 0 and project_id not in self.spec.include_environment_ids:
+                continue
             resources = self.get_collection(f"projects/{project_id}/{resource}", params)
             for r in resources:
                 r["project_name"] = name
