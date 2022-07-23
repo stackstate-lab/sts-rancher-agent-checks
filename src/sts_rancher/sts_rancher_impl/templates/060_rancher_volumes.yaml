@@ -1,0 +1,44 @@
+etl:
+  queries:
+    - name: rancher_volumes
+      query: "rancher.get_resource_from_all_projects('volumes')"
+      template_refs:
+        - rancher_volume_template
+        - rancher_volume_status_template
+  template:
+    components:
+      - name: rancher_volume_template
+        spec:
+          name: "$.id"
+          type: "rancher-volume"
+          uid: "|uid('rancher', 'volume', item['id'])"
+          layer: "Rancher Volumes"
+          domain: "$.project_name"
+          relations: |
+            relations = []
+            if item['instanceId']:
+              relations.append(uid('rancher', 'container', item['instanceId']))
+            if item["mounts"]:
+              for m in item["mounts"]:
+                rel = uid('rancher', 'container', m['instanceId'])
+                rel = "<%s" % rel
+                if rel not in relations:
+                  relations.append(rel)
+            relations
+    health:
+      - name: rancher_volume_status_template
+        spec:
+          check_id: "|'rancher_volume_%s_status' % item['id']"
+          check_name: "VolumeState"
+          topo_identifier: "|uid('rancher', 'volume', item['id'])"
+          health: |
+            if item["state"] == "active":
+                state = "CLEAR"
+            elif item["state"] == "detached":
+                state = "DEVIATING"
+                health.message = "Detached"
+            else:
+              state = "CRITICAL"
+              health.message = item["state"]
+            state
+
