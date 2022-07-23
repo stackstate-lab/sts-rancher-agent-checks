@@ -82,6 +82,8 @@ def _setup_request_mocks(instance, m):
         ("GET", "projects/1a5/networks", "default_networks"),
         ("GET", "projects/1a5/subnets", "default_subnets"),
         ("GET", "projects/1a17/subnets", "sts_subnets"),
+        ("GET", "projects/1a17/storagepools", "sts_storagepools"),
+        ("GET", "projects/1a5/storagepools", "default_storagepools"),
     ]
 
     for endpoint in endpoints:

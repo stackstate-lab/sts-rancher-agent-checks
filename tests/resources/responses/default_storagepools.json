@@ -1,0 +1,104 @@
+{
+  "type": "collection",
+  "resourceType": "storagePool",
+  "links": {
+    "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools"
+  },
+  "createTypes": {
+    "registry": "http://192.168.56.30:8080/v2-beta/projects/1a5/registries"
+  },
+  "actions": {},
+  "data": [
+    {
+      "id": "1sp1",
+      "type": "storagePool",
+      "links": {
+        "self": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1",
+        "account": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/account",
+        "credentials": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/credentials",
+        "hosts": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/hosts",
+        "images": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/images",
+        "volumes": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/volumes"
+      },
+      "actions": {
+        "update": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/?action=update",
+        "deactivate": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools/1sp1/?action=deactivate"
+      },
+      "baseType": "storagePool",
+      "name": "rancher-server Storage Pool",
+      "state": "active",
+      "accountId": "1a5",
+      "blockDevicePath": null,
+      "created": "2022-07-21T09:45:18Z",
+      "createdTS": 1658396718000,
+      "description": null,
+      "driverName": null,
+      "externalId": null,
+      "hostIds": [
+        "1h1"
+      ],
+      "kind": "docker",
+      "removed": null,
+      "storageDriverId": null,
+      "transitioning": "no",
+      "transitioningMessage": null,
+      "transitioningProgress": null,
+      "uuid": "eae9a41e-e801-483c-9641-b83b80502907",
+      "volumeAccessMode": null,
+      "volumeCapabilities": null,
+      "volumeIds": null
+    }
+  ],
+  "sortLinks": {
+    "accountId": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=accountId",
+    "agentId": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=agentId",
+    "created": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=created",
+    "description": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=description",
+    "driverName": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=driverName",
+    "external": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=external",
+    "externalId": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=externalId",
+    "id": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=id",
+    "kind": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=kind",
+    "name": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=name",
+    "physicalTotalSizeMb": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=physicalTotalSizeMb",
+    "removeTime": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=removeTime",
+    "removed": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=removed",
+    "state": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=state",
+    "storageDriverId": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=storageDriverId",
+    "uuid": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=uuid",
+    "virtualTotalSizeMb": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=virtualTotalSizeMb",
+    "volumeAccessMode": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=volumeAccessMode",
+    "zoneId": "http://192.168.56.30:8080/v2-beta/projects/1a5/storagepools?sort=zoneId"
+  },
+  "pagination": {
+    "first": null,
+    "previous": null,
+    "next": null,
+    "limit": 100,
+    "total": null,
+    "partial": false
+  },
+  "sort": null,
+  "filters": {
+    "accountId": null,
+    "agentId": null,
+    "created": null,
+    "description": null,
+    "driverName": null,
+    "external": null,
+    "externalId": null,
+    "id": null,
+    "kind": null,
+    "name": null,
+    "physicalTotalSizeMb": null,
+    "removeTime": null,
+    "removed": null,
+    "state": null,
+    "storageDriverId": null,
+    "uuid": null,
+    "virtualTotalSizeMb": null,
+    "volumeAccessMode": null,
+    "zoneId": null
+  },
+  "createDefaults": {}
+}
