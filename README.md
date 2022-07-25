@@ -106,6 +106,7 @@ StackState Rancher Agent Check is developed in Python 3, and is transpiled to Py
 - Python v.3.7+. See [Python installation guide](https://docs.python-guide.org/starting/installation/)
 - [Poetry](https://python-poetry.org/docs/#installation)
 - [Docker](https://www.docker.com/get-started)
+- [Mockoon](https://mockoon.com/)
 - [Custom Synchronization StackPack](https://docs.stackstate.com/stackpacks/integrations/customsync)
 ---
 
@@ -141,6 +142,11 @@ STSDEV_ADDITIONAL_COMMANDS_FG=true
 EXCLUDE_LIBS=charset-normalizer,stackstate-etl,stackstate-etl-agent-check
 EOF
 ```
+
+### Preparing Mock Server
+
+In Mockoon, open environment `tests/resources/mockoon/Rancher.json` and press start.
+
 ### Preparing Agent check conf.yaml
 
 ```
