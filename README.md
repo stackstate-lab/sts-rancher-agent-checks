@@ -52,6 +52,8 @@ instances:
 
 ```
 
+See [Instance Model](./src/sts_rancher/sts_rancher_impl/model/instance.py) for complete options.
+
 Run the agent check to verify configured correctly.
 
 ```bash
