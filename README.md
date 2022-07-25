@@ -89,7 +89,9 @@ APIs to syn data from,
 | [rancher_volume_template](./src/sts_rancher/sts_rancher_impl/templates/060_rancher_volumes.yaml)                    | rancher-volume      | Component | [v2-beta/projects/{project}/volumes](./tests/resources/responses/sts_volumes.json)           |             |
 | [rancher_volume_status_template](./src/sts_rancher/sts_rancher_impl/templates/060_rancher_volumes.yaml)             | rancher-volume      | Health    | [v2-beta/projects/{project}/volumes](./tests/resources/responses/sts_volumes.json)           |             |
 | [rancher_storage_pool_template](./src/sts_rancher/sts_rancher_impl/templates/062_rancher_storage_pools.yaml)        | rancher-storagepool | Component | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
-| [rancher_storage_pool_status_template](./src/sts_rancher/sts_rancher_impl/templates/060_rancher_storage_pools.yaml) | rancher-storagepool | Health    | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
+| [rancher_storage_pool_status_template](./src/sts_rancher/sts_rancher_impl/templates/062_rancher_storage_pools.yaml) | rancher-storagepool | Health    | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
+| [rancher_network_template](./src/sts_rancher/sts_rancher_impl/templates/070_rancher_networks.yaml)                  | rancher-network     | Component | [v2-beta/projects/{project}/networks](./tests/resources/responses/sts_networks.json)         |             |
+| [rancher_network_status_template](./src/sts_rancher/sts_rancher_impl/templates/070_rancher_networks.yaml)           | rancher-network     | Health    | [v2-beta/projects/{project}/networks](./tests/resources/responses/sts_networks.json)         |             |
 
 
 ## Development

@@ -1,0 +1,38 @@
+etl:
+  queries:
+    - name: rancher_networks
+      query: "rancher.get_resource_from_all_projects('networks')"
+      template_refs:
+        - rancher_network_template
+        - rancher_network_status_template
+  template:
+    components:
+      - name: rancher_network_template
+        spec:
+          name: "$.name"
+          type: "rancher-network"
+          uid: "|uid('rancher', 'network', item['id'])"
+          layer: "Rancher Networks"
+          domain: "$.project_name"
+          custom_properties:
+            kind: "$.kind"
+            dns: "$.dns"
+            dnsSearch: "$.dnsSearch"
+            subnets: "$.subnets"
+    health:
+      - name: rancher_network_status_template
+        spec:
+          check_id: "|'rancher_network_%s_status' % item['id']"
+          check_name: "NetworkState"
+          topo_identifier: "|uid('rancher', 'network', item['id'])"
+          health: |
+            if item["state"] == "active":
+                state = "CLEAR"
+            elif item["state"] == "detached":
+                state = "DEVIATING"
+                health.message = "Detached"
+            else:
+              state = "CRITICAL"
+              health.message = item["state"]
+            state
+
