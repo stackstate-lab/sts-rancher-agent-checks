@@ -1,0 +1,47 @@
+etl:
+  queries:
+    - name: rancher_storage_pools
+      query: "rancher.get_resource_from_all_projects('storagepools')"
+      template_refs:
+        - rancher_storage_pool_template
+        - rancher_storage_pool_status_template
+  template:
+    components:
+      - name: rancher_storage_pool_template
+        spec:
+          name: "$.id"
+          type: "rancher-storagepool"
+          uid: "|uid('rancher', 'storage:pool', item['id'])"
+          layer: "Rancher Storage Pools"
+          domain: "$.project_name"
+          relations: |
+            relations = []
+            if item["hostIds"]:
+              for h in item["hostIds"]:
+                rel = uid('rancher', 'host', h)
+                if rel not in relations:
+                  relations.append(rel)
+            if item["volumeIds"]:
+              for v in item["volumeIds"]:
+                rel = uid('rancher', 'volume', v)
+                rel = "<%s" % rel
+                if rel not in relations:
+                  relations.append(rel)
+            relations
+    health:
+      - name: rancher_storage_pool_status_template
+        spec:
+          check_id: "|'rancher_storagepool_%s_status' % item['id']"
+          check_name: "StoragePoolState"
+          topo_identifier: "|uid('rancher', 'storage:pool', item['id'])"
+          health: |
+            if item["state"] == "active":
+                state = "CLEAR"
+            elif item["state"] == "detached":
+                state = "DEVIATING"
+                health.message = "Detached"
+            else:
+              state = "CRITICAL"
+              health.message = item["state"]
+            state
+
