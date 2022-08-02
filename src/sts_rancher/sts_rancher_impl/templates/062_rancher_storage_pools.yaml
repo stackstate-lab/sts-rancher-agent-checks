@@ -16,12 +16,12 @@ etl:
           domain: "$.project_name"
           relations: |
             relations = []
-            if item["hostIds"]:
+            if item.get("hostIds", None):
               for h in item["hostIds"]:
                 rel = uid('rancher', 'host', h)
                 if rel not in relations:
                   relations.append(rel)
-            if item["volumeIds"]:
+            if item.get("volumeIds", None):
               for v in item["volumeIds"]:
                 rel = uid('rancher', 'volume', v)
                 rel = "<%s" % rel

@@ -34,8 +34,12 @@ class RancherClient(object):
             if page["type"] != "collection":
                 raise Exception(f"Endpoint {url} expected to return collection by type was {page['type']}")
             result.extend(page["data"])
-            if page["pagination"] is None or page["pagination"]["next"] is None:
+            if page["pagination"] is None:
                 paging = False
+            elif page["pagination"]["next"] is None:
+                paging = False
+            else:
+                url = page["pagination"]["next"]
         return result
 
     def get_resource_from_all_projects(

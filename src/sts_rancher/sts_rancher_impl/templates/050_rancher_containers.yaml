@@ -15,7 +15,10 @@ etl:
           layer: "Rancher Containers"
           domain: "$.project_name"
           relations: |
-            relations = [uid('rancher', 'network', item['primaryNetworkId'])]            
+            if item['primaryNetworkId']:
+              relations = [uid('rancher', 'network', item['primaryNetworkId'])]
+            else:
+              relations = []
             if item["serviceIds"]:
               for service in item["serviceIds"]:
                 target_uid = uid('rancher', 'service', service)

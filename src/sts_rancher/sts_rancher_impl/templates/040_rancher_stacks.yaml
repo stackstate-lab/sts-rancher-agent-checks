@@ -16,9 +16,10 @@ etl:
           domain: "$.project_name"
           relations: |
             relations = []
-            for service in item["serviceIds"]:
-              target_uid = uid('rancher', 'service', service)
-              relations.append(target_uid)
+            if item["serviceIds"]:
+              for service in item["serviceIds"]:
+                target_uid = uid('rancher', 'service', service)
+                relations.append(target_uid)
             relations
           custom_properties:
             dockerCompose: "$.dockerCompose"
