@@ -33,14 +33,31 @@ etl:
           lb_component = factory.get_component(uid('rancher', 'service', item['id']))
           port_rules = item["lbConfig"]["portRules"]
           for port_rule in port_rules:
-              target_uid = uid('rancher', 'service', port_rule['serviceId'])
-              if not factory.relation_exists(lb_component.uid, target_uid):
-                relation = factory.add_relation(lb_component.uid, target_uid)
+              if port_rule.get("hostname", None) is None:
+                target_uid = uid('rancher', 'service', port_rule['serviceId'])
+                if not factory.relation_exists(lb_component.uid, target_uid):
+                  relation = factory.add_relation(lb_component.uid, target_uid)
+                else:
+                  rel_id = "%s --> %s" % (lb_component.uid, target_uid)
+                  relation = factory.relations[rel_id]
+                rel_port_rules = relation.properties.setdefault("port_rules", [])
+                rel_port_rules.append(port_rule)
               else:
-                rel_id = "%s --> %s" % (lb_component.uid, target_uid)
-                relation = factory.relations[rel_id]
-              rel_port_rules = relation.properties.setdefault("port_rules", [])
-              rel_port_rules.append(port_rule)
+                serverside_name = port_rule["hostname"]
+                serverside_uid = factory.get_uid("host", "virtual:server", serverside_name)
+                if not factory.component_exists(serverside_uid):
+                    serverside_component = ComponentClass()
+                    serverside_component.uid = serverside_uid
+                    serverside_component.set_type("virtual-server")
+                    serverside_component.set_name(serverside_name)
+                    serverside_component.properties.layer = "Virtual Servers"
+                    serverside_component.properties.domain = item["project_name"]
+                    factory.add_component(serverside_component)
+                if not factory.relation_exists(serverside_uid, lb_component.uid):
+                  relation = factory.add_relation(serverside_uid, lb_component.uid)
+                target_uid = uid('rancher', 'service', port_rule['serviceId'])
+                if not factory.relation_exists(serverside_uid, target_uid):
+                  relation = factory.add_relation(serverside_uid, target_uid)
     health:
       - name: rancher_service_status_template
         spec:
