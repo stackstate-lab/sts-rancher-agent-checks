@@ -37,7 +37,7 @@ def test_check(m: requests_mock.Mocker = None):
     components = snapshot["components"]
     relations = snapshot["relations"]
     assert len(components) == 175, "Number of Components does not match"
-    assert len(relations) == 269, "Number of Relations does not match"
+    assert len(relations) == 271, "Number of Relations does not match"
     assert len(health_check_states) == 168, "Number of Health does not match"
     assert len(metric_names) == 0, "Number of Metrics does not match"
 

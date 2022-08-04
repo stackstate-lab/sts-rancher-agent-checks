@@ -547,7 +547,7 @@ six = "^1.16.0"
 type = "git"
 url = "git@github.com:stackstate-lab/stackstate-etl.git"
 reference = "master"
-resolved_reference = "a534c5d433200dbe0d0c5d0aca969a19ad1532d6"
+resolved_reference = "9e27187cd37752d396a237520141e0ab87efd145"
 
 [[package]]
 name = "stackstate-etl-agent-check"

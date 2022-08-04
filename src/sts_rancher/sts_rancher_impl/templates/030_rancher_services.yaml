@@ -1,21 +1,41 @@
 etl:
+  datasources:
+    - name: ComponentClass
+      module: stackstate_etl.model.stackstate
+      cls: Component
+      init: "Component"
   queries:
     - name: rancher_services
       query: "rancher.get_resource_from_all_projects('services')"
       template_refs:
         - rancher_service_template
         - rancher_service_status_template
+        - rancher_loadbalancer_service_config_template
   template:
     components:
       - name: rancher_service_template
         spec:
           name: "$.name"
-          type: "rancher-service"
+          type: |
+            ctype = 'rancher-service' if item['type'] != 'loadBalancerService' else 'rancher-loadbalancer-service'
+            ctype
           uid: "|uid('rancher', 'service', item['id'])"
-          layer: "Rancher Services"
+          layer: |
+            layer = 'Rancher Services' if item['type'] != 'loadBalancerService' else 'Rancher LB Services'
+            layer
           domain: "$.project_name"
           custom_properties:
             currentScale: "$.currentScale"
+    processors:
+      - name: rancher_loadbalancer_service_config_template
+        selector: "|item['type'] == 'loadBalancerService'"
+        code: |
+          lb_component = factory.get_component(uid('rancher', 'service', item['id']))
+          port_rules = item["lbConfig"]["portRules"]
+          for port_rule in port_rules:
+              target_uid = uid('rancher', 'service', port_rule['serviceId'])
+              if not factory.relation_exists(lb_component.uid, target_uid):
+                factory.add_relation(lb_component.uid, target_uid)
     health:
       - name: rancher_service_status_template
         spec:
