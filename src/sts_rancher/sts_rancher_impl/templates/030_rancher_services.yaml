@@ -36,7 +36,11 @@ etl:
               target_uid = uid('rancher', 'service', port_rule['serviceId'])
               if not factory.relation_exists(lb_component.uid, target_uid):
                 relation = factory.add_relation(lb_component.uid, target_uid)
-                relation.properties["port_rule"] = port_rule
+              else:
+                rel_id = "%s --> %s" % (lb_component.uid, target_uid)
+                relation = factory.relations[rel_id]
+              rel_port_rules = relation.properties.setdefault("port_rules", [])
+              rel_port_rules.append(port_rule)
     health:
       - name: rancher_service_status_template
         spec:

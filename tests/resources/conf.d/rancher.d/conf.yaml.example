@@ -6,8 +6,8 @@ instances:
     collection_interval: 300
     rancher:
       url: "https://172.16.253.200"
-      username: "B1154372FD0975FBDC8B"
-      password: "DPTZrUKf87XFpd2jC99m5e74AkJSAgJFPPKx1d2q"
+      username: "67BCF990184425780DD0"
+      password: "ivTf6jQ9gJv3s6TZLNBxvdgvwhWpBeXmBfxtcq3q"
     domain: "Rancher"
     layer: "Machines"
     etl:
