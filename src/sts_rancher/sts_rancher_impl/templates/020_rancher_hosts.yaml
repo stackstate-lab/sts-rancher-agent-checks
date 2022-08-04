@@ -23,6 +23,13 @@ etl:
           uid: "|uid('rancher', 'host', item['id'])"
           layer: "Rancher Hosts"
           domain: "$.project_name"
+          relations: |
+            relations = [uid('rancher', 'host', item['id'])]
+            instance_ids = item.get("instanceIds", [])
+            for instance_id in instance_ids:
+              rel = "<%s" % uid('rancher', 'container', instance_id)
+              relations.append(rel)
+            relations
           custom_properties:
             milliCpu: "$.milliCpu"
             memory_gb: "|global_session['bytes_to'](item['memory'], 'g')"
