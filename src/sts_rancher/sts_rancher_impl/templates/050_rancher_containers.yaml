@@ -14,6 +14,19 @@ etl:
           uid: "|uid('rancher', 'container', item['id'])"
           layer: "Rancher Containers"
           domain: "$.project_name"
+          labels: |
+            labels = []
+            for k, v in item["labels"].items():
+              labels.append("%s:%s" % (k,v))
+            labels
+          identifiers: |
+            identifiers = []
+            if item["labels"].get("io.rancher.container.uuid", None) is not None:
+              container_uuid = item["labels"]["io.rancher.container.uuid"]
+              container_name = item["labels"]["io.rancher.container.name"]
+              container_name = "r-%s-%s" % (container_name, container_uuid.split("-")[0])  
+              identifiers.append("urn:container:/%s" % container_name)
+            identifiers
           relations: |
             if item['primaryNetworkId']:
               relations = [uid('rancher', 'network', item['primaryNetworkId'])]

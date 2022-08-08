@@ -24,6 +24,11 @@ etl:
             layer = 'Rancher Services' if item['type'] != 'loadBalancerService' else 'Rancher LB Services'
             layer
           domain: "$.project_name"
+          labels: |
+            labels = []
+            for k, v in item["launchConfig"]["labels"].items():
+              labels.append("%s:%s" % (k,v))
+            labels
           custom_properties:
             currentScale: "$.currentScale"
     processors:
@@ -52,6 +57,7 @@ etl:
                     serverside_component.set_name(serverside_name)
                     serverside_component.properties.layer = "Virtual Servers"
                     serverside_component.properties.domain = item["project_name"]
+                    serverside_component.properties.add_identifier(serverside_uid)
                     factory.add_component(serverside_component)
                 if not factory.relation_exists(serverside_uid, lb_component.uid):
                   relation = factory.add_relation(serverside_uid, lb_component.uid)

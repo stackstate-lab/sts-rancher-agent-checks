@@ -23,6 +23,8 @@ etl:
           uid: "|uid('rancher', 'host', item['id'])"
           layer: "Rancher Hosts"
           domain: "$.project_name"
+          identifiers:
+            - "|'urn:host:/%s' % item['hostname']"
           relations: |
             relations = [uid('rancher', 'host', item['id'])]
             instance_ids = item.get("instanceIds", [])
