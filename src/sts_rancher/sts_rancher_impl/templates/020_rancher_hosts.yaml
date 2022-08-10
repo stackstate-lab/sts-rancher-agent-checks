@@ -9,7 +9,8 @@ etl:
           public_endpoints.append(pe)
       template_refs:
         - rancher_host_template
-        - rancher_host_status_template
+        - rancher_agent_template
+        - rancher_agent_status_template
     - name: rancher_public_endpoints
       query: "session['public_endpoints']"
       template_refs:
@@ -37,6 +38,20 @@ etl:
             memory_gb: "|global_session['bytes_to'](item['memory'], 'g')"
             info: "$.info.labels"
             agentIpAddress: "$.agentIpAddress"
+      - name: rancher_agent_template
+        spec:
+          name: "$.hostname"
+          type: "rancher-agent"
+          uid: "|uid('rancher', 'agent', item['id'])"
+          layer: "Rancher Agents"
+          domain: "$.project_name"
+          relations: |
+            relations = [uid('rancher', 'host', item['id'])]
+            instance_ids = item.get("instanceIds", [])
+            for instance_id in instance_ids:
+              rel = "<%s" % uid('rancher', 'container', instance_id)
+              relations.append(rel)
+            relations
       - name: rancher_public_endpoint_template
         selector: |
             cid = uid('rancher', 'endpoint', '%s:%s' % (item['instanceId'], item['port'] ))
@@ -54,11 +69,11 @@ etl:
               relations.append(uid('rancher', 'service', item['serviceId']))
             relations
     health:
-      - name: rancher_host_status_template
+      - name: rancher_agent_status_template
         spec:
-          check_id: "|'rancher_host_%s_status' % item['id']"
-          check_name: "HostAvailable"
-          topo_identifier: "|uid('rancher', 'host', item['id'])"
+          check_id: "|'rancher_agent_%s_status' % item['id']"
+          check_name: "AgentAvailability"
+          topo_identifier: "|uid('rancher', 'agent', item['id'])"
           health: |
             if item["state"] == "active":
               if item["agentState"] is None:
