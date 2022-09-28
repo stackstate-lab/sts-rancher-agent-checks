@@ -91,7 +91,7 @@ def _setup_request_mocks(instance, m):
 
 
 def setup_test_instance() -> Dict[str, Any]:
-    with open("tests/resources/conf.d/rancher.d/conf.yaml.example") as f:
+    with open("src/data/conf.d/rancher.d/conf.yaml.example") as f:
         config = yaml.load(f)
         instance_dict = config["instances"][0]
     return instance_dict

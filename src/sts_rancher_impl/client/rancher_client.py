@@ -1,19 +1,19 @@
 from logging import Logger
 from typing import Any, Dict, List, Optional
 
-import pydash.strings
 import requests
 from requests.adapters import HTTPAdapter
 from requests.structures import CaseInsensitiveDict
-from sts_rancher_impl.model.instance import RancherSpec
 from urllib3.util import Retry
+
+from sts_rancher_impl.model.instance import RancherSpec
 
 
 class RancherClient(object):
     def __init__(self, spec: RancherSpec, log: Logger):
         self.log = log
         self.spec = spec
-        self.spec.url = pydash.strings.ensure_ends_with(spec.url, "/")
+        self.spec.url = spec.url if spec.url.endswith("/") else "%s/" % spec.url
         self._session = self._init_session(spec)
         self._project_lookup: Dict[str, str] = {}
 

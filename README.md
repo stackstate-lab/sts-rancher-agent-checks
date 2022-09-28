@@ -16,7 +16,7 @@ See [StackState ETL documentation](https://stackstate-lab.github.io/stackstate-e
 From the StackState Agent 2 linux machine, run
 
 ```bash 
-curl -L https://github.com/stackstate-lab/sts-rancher-agent-checks/releases/download/v0.1.0/sts_rancher-0.1.0.zip -o sts_rancher.zip
+curl -L https://github.com/stackstate-lab/sts-rancher-agent-checks/releases/download/v0.1.1/sts_rancher-0.1.1.zip -o sts_rancher.zip
 tar -xvf sts_rancher.zip
 ./install.sh
 ```
@@ -52,7 +52,7 @@ instances:
 
 ```
 
-See [Instance Model](./src/sts_rancher/sts_rancher_impl/model/instance.py) for complete options.
+See [Instance Model](sts-rancher-agent-checks/src/sts_rancher_impl/model/instance.py) for complete options.
 
 Run the agent check to verify configured correctly.
 
@@ -72,75 +72,64 @@ APIs to syn data from,
 
 | Name                                                                       | Module                    | Cls                                                                         | Description                        |
 |----------------------------------------------------------------------------|---------------------------|-----------------------------------------------------------------------------|------------------------------------|
-| [rancher](./src/sts_rancher/sts_rancher_impl/templates/010_default.yaml)   | sts_rancher_impl.client   | [RancherClient](src/sts_rancher/sts_rancher_impl/client/rancher_client.py)  | enables rest calls to rancher  api |
+| [rancher](sts-rancher-agent-checks/src/sts_rancher_impl/templates/010_default.yaml)   | sts_rancher_impl.client   | [RancherClient](sts-rancher-agent-checks/src/sts_rancher_impl/client/rancher_client.py)  | enables rest calls to rancher  api |
 
 
 ### Template Mappings
 
 | Name                                                                                                                     | Type                                           | 4T        | rancher Api                                                                                  | Description |
 |--------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|-----------|----------------------------------------------------------------------------------------------|-------------|
-| [rancher_host_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)                             | rancher-host                                   | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)               |             |
-| [rancher_public_endpoint_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)                  | rancher-endpoint                               | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)               |             |
-| [rancher_host_status_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_hosts.yaml)                      | rancher-host                                   | Health    | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)               |             |
-| [rancher_service_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml)                       | rancher-service/rancher-loadbalancer-service   | Component | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json)         |             |
-| [rancher_loadbalancer_service_config_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml)   | rancher-loadbalancer-service                   | Relation  | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json)         |             |
-| [rancher_service_status_template](./src/sts_rancher/sts_rancher_impl/templates/020_rancher_services.yaml)                | rancher-service                                | Health    | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json)         |             |
-| [rancher_stack_template](./src/sts_rancher/sts_rancher_impl/templates/040_rancher_stacks.yaml)                           | rancher-stack                                  | Component | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)             |             |
-| [rancher_stack_status_template](./src/sts_rancher/sts_rancher_impl/templates/040_rancher_stacks.yaml)                    | rancher-stack                                  | Health    | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)             |             |
-| [rancher_container_template](./src/sts_rancher/sts_rancher_impl/templates/050_rancher_containers.yaml)                   | rancher-container                              | Component | [v2-beta/projects/{project}/containers](./tests/resources/responses/sts_containers.json)     |             |
-| [rancher_container_status_template](./src/sts_rancher/sts_rancher_impl/templates/050_rancher_containers.yaml)            | rancher-container                              | Health    | [v2-beta/projects/{project}/containers](./tests/resources/responses/sts_containers.json)     |             |
-| [rancher_volume_template](./src/sts_rancher/sts_rancher_impl/templates/060_rancher_volumes.yaml)                         | rancher-volume                                 | Component | [v2-beta/projects/{project}/volumes](./tests/resources/responses/sts_volumes.json)           |             |
-| [rancher_volume_status_template](./src/sts_rancher/sts_rancher_impl/templates/060_rancher_volumes.yaml)                  | rancher-volume                                 | Health    | [v2-beta/projects/{project}/volumes](./tests/resources/responses/sts_volumes.json)           |             |
-| [rancher_storage_pool_template](./src/sts_rancher/sts_rancher_impl/templates/062_rancher_storage_pools.yaml)             | rancher-storagepool                            | Component | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
-| [rancher_storage_pool_status_template](./src/sts_rancher/sts_rancher_impl/templates/062_rancher_storage_pools.yaml)      | rancher-storagepool                            | Health    | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
-| [rancher_network_template](./src/sts_rancher/sts_rancher_impl/templates/070_rancher_networks.yaml)                       | rancher-network                                | Component | [v2-beta/projects/{project}/networks](./tests/resources/responses/sts_networks.json)         |             |
-| [rancher_network_status_template](./src/sts_rancher/sts_rancher_impl/templates/070_rancher_networks.yaml)                | rancher-network                                | Health    | [v2-beta/projects/{project}/networks](./tests/resources/responses/sts_networks.json)         |             |
+| [rancher_host_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/020_rancher_hosts.yaml)                             | rancher-host                                   | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)               |             |
+| [rancher_public_endpoint_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/020_rancher_hosts.yaml)                  | rancher-endpoint                               | Component | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)               |             |
+| [rancher_host_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/020_rancher_hosts.yaml)                      | rancher-host                                   | Health    | [v2-beta/projects/{project}/hosts](./tests/resources/responses/sts_hosts.json)               |             |
+| [rancher_service_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/020_rancher_services.yaml)                       | rancher-service/rancher-loadbalancer-service   | Component | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json)         |             |
+| [rancher_loadbalancer_service_config_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/020_rancher_services.yaml)   | rancher-loadbalancer-service                   | Relation  | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json)         |             |
+| [rancher_service_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/020_rancher_services.yaml)                | rancher-service                                | Health    | [v2-beta/projects/{project}/services](./tests/resources/responses/sts_services.json)         |             |
+| [rancher_stack_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/040_rancher_stacks.yaml)                           | rancher-stack                                  | Component | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)             |             |
+| [rancher_stack_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/040_rancher_stacks.yaml)                    | rancher-stack                                  | Health    | [v2-beta/projects/{project}/stacks](./tests/resources/responses/sts_stacks.json)             |             |
+| [rancher_container_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/050_rancher_containers.yaml)                   | rancher-container                              | Component | [v2-beta/projects/{project}/containers](./tests/resources/responses/sts_containers.json)     |             |
+| [rancher_container_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/050_rancher_containers.yaml)            | rancher-container                              | Health    | [v2-beta/projects/{project}/containers](./tests/resources/responses/sts_containers.json)     |             |
+| [rancher_volume_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/060_rancher_volumes.yaml)                         | rancher-volume                                 | Component | [v2-beta/projects/{project}/volumes](./tests/resources/responses/sts_volumes.json)           |             |
+| [rancher_volume_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/060_rancher_volumes.yaml)                  | rancher-volume                                 | Health    | [v2-beta/projects/{project}/volumes](./tests/resources/responses/sts_volumes.json)           |             |
+| [rancher_storage_pool_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/062_rancher_storage_pools.yaml)             | rancher-storagepool                            | Component | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
+| [rancher_storage_pool_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/062_rancher_storage_pools.yaml)      | rancher-storagepool                            | Health    | [v2-beta/projects/{project}/storagepools](./tests/resources/responses/sts_storagepools.json) |             |
+| [rancher_network_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/070_rancher_networks.yaml)                       | rancher-network                                | Component | [v2-beta/projects/{project}/networks](./tests/resources/responses/sts_networks.json)         |             |
+| [rancher_network_status_template](sts-rancher-agent-checks/src/sts_rancher_impl/templates/070_rancher_networks.yaml)                | rancher-network                                | Health    | [v2-beta/projects/{project}/networks](./tests/resources/responses/sts_networks.json)         |             |
 
 
 ## Development
 
-StackState Rancher Agent Check is developed in Python 3, and is transpiled to Python 2.7 during build.
+This project is generated using [Yeoman](https://yeoman.io/) and the [StackState Generator](https://github.com/stackstate-lab/generator-stackstate-lab)
+
+StackState Rancher Agent Check is developed in Python 3, and is transpiled to Python 2.7 for deployment to the StackState Agent v2 environment.
 
 ---
 ### Prerequisites:
 
-- Python v.3.7+. See [Python installation guide](https://docs.python-guide.org/starting/installation/)
-- [Poetry](https://python-poetry.org/docs/#installation)
+- Python v.3.9.x See [Python installation guide](https://docs.python-guide.org/starting/installation/)
+- [PDM](https://pdm.fming.dev/latest/#recommended-installation-method)
 - [Docker](https://www.docker.com/get-started)
 - [Mockoon](https://mockoon.com/)
-- [Custom Synchronization StackPack](https://docs.stackstate.com/stackpacks/integrations/customsync)
 ---
 
 ### Setup local code repository
 
-
-The poetry install command creates a virtual environment and downloads the required dependencies.
-
-Install the [stsdev](https://github.com/stackstate-lab/stslab-dev) tool into the virtual environment.
-
 ```bash 
-python -m pip install https://github.com/stackstate-lab/stslab-dev/releases/download/v0.0.7/stslab_dev-0.0.7-py3-none-any.whl
+git clone git@github.com:stackstate-lab/sts-rancher-agent-checks.git
+cd rancher
+pdm install 
 ```
+The `pdm install` command sets up all the projects required dependencies using [PEP 582](https://peps.python.org/pep-0582/) instead of virtual environments.
 
-Finalize the downloading of the StackState Agent dependencies using `stsdev`
+### Prepare local _.sts.env_ file
 
-```bash
-stsdev update
-```
-### Prepare local `.env` file
-
-The `.env` file is used by `stsdev` to prepare and run the StackState Agent Docker image. Remember to change the
-StackState url and api key for your environment.
+The `.sts.env` file is used to run the StackState Agent container. Remember to change the StackState url and api key for your environment.
 
 ```bash
 
-cat <<EOF > ./.env
-STSDEV_IMAGE_EXT=tests/resources/docker/agent_dockerfile
+cat <<EOF > ./.sts.env
 STS_URL=https://xxx.stackstate.io/receiver/stsAgent
 STS_API_KEY=xxx
-STSDEV_ADDITIONAL_COMMANDS=/etc/stackstate-agent/share/install.sh
-STSDEV_ADDITIONAL_COMMANDS_FG=true
-EXCLUDE_LIBS=charset-normalizer,stackstate-etl,stackstate-etl-agent-check
 EOF
 ```
 
@@ -151,94 +140,60 @@ In Mockoon, open environment `tests/resources/mockoon/Rancher.json` and press st
 ### Preparing Agent check conf.yaml
 
 ```
-cp ./tests/resources/conf.d/rancher.d/conf.yaml.example ./tests/resources/conf.d/rancher.d/conf.yaml
+cp ./src/data/conf.d/rancher.d/conf.yaml.example ./src/data/conf.d/rancher.d/conf.yaml
 ```
 ---
 
-### Running in Intellij
-
-Setup the module sdk to point to the virtual python environment created by Poetry.
-Default on macos is `~/Library/Caches/pypoetry/virtualenvs`
-
-Create a python test run config for `tests/test_rancher_check.py`
-
-You can now run the integration from the test.
-
----
-### Running using `stsdev`
-
-```bash
-
-stsdev agent check rancher 
-```
-
-### Running StackState Agent to send data to StackState
-
-```bash
-
-stsdev agent run
-```
-
----
-
-## Quick-Start for `stsdev`
-
-`stsdev` is a tool to aid with the development StackState Agent integrations.
-
-### Managing dependencies
-
-[Poetry](https://python-poetry.org/) is used as the packaging and dependency management system.
-
-Dependencies for your project can be managed through `poetry add` or `poetry add -D` for development dependency.
-
-```console
-$ poetry add PyYAML
-```
 ### Code styling and linting
 
-```console
-$ stsdev code-style
+- [Black](https://black.readthedocs.io/en/stable/) for formatting
+- [isort](https://pycqa.github.io/isort/) to sort imports
+- [Flakehell](https://flakehell.readthedocs.io/) for linting
+- [mypy](https://mypy.readthedocs.io/en/stable/) for static type checking
+
+```bash
+pdm format
 ```
 
-### Build the project
-To build the project,
-```console
-$ stsdev build --no-run-tests
-```
-This will automatically run code formatting, linting, tests and finally the build.
+### Running unit tests
 
-### Unit Testing
-To run tests in the project,
-```console
-$ stsdev test
-```
-This will automatically run code formatting, linting, and tests.
-
-### Dry-run a check
-
-A check can be dry-run inside the StackState Agent by running
-
-```console
-$ stsdev agent check rancher
-```
-Before running the command, remember to copy the example conf `tests/resources/conf.d/rancher.d/conf.yaml.example` to
-`tests/resources/conf.d/rancher.d/conf.yaml`.
-
-
-### Running checks in the Agent
-
-Starts the StackState Agent in the foreground using the test configuration `tests/resources/conf.d`
-
-```console
-$ stsdev agent run
+```bash
+pdm test
 ```
 
-### Packaging checks
+### Build
 
-```console
-$  stsdev package --no-run-tests
+The build will transpile the custom agent check to Python 2.7 and creates and install shell script packaged into
+the `dist/rancher-agent-check-0.1.0.zip`
+
+```bash
+pdm build
 ```
-This will automatically run code formatting, linting, tests and finally the packaging.
-A zip file is created in the `dist` directory.  Copy this to the host running the agent and unzip it.
-Run the `install.sh`.
 
+### Building a StackState Agent container
+
+You have the ability to customize the StackState Agent using the [Dockerfile](sts-rancher-agent-checks/tasks/dev-agent/Dockerfile).
+
+For installing os packages or other tools at runtime, you could define an `install.sh` file in the `tests/resources/share/` directory that is run every time the container is started.
+
+```bash
+pdm cleanAgent
+pdm buildAgent
+```
+
+### Running your custom agent check
+
+A check can be dry-run inside the StackState Agent container by running:
+
+```bash
+pdm check
+```
+
+### Starting the StackState Agent to send data to StackState server
+
+Starts the StackState Agent in the foreground using the configuration `src/data/conf.d/` directory.
+
+```bash
+pdm serve
+```
+---
